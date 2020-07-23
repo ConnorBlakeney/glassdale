@@ -1,7 +1,7 @@
 import { useOfficers, getOfficers } from "./OfficerProvider.js"
 import { OfficerHTMLConverter } from "./OfficerHTMLConverter.js"
 
-const contentTarget = document.querySelector(".officersContainer")
+const contentTarget = document.querySelector(".officersContainter")
 
 export const OfficerList = () => {
   getOfficers().then(() => {
