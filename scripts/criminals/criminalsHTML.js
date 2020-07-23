@@ -1,4 +1,4 @@
-export const criminalssHTML = (criminal) => {
+export const criminalsHTML = (criminal) => {
   return `
           <section class="criminal__card">
               <h3 class="name">${criminal.name}</h3>
