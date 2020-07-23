@@ -1,7 +1,7 @@
 let convictions = []
 
 export const useConvictions = () => {
-  return crimes.slice()
+  return convictions.slice()
 }
 
 export const getConvictions = () => {
