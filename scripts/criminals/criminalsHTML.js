@@ -5,8 +5,12 @@ export const criminalsHTML = (criminal) => {
               <br>
               <div class="criminal__age">Age: ${criminal.age}</div>
               <div class="criminal__crime"> Crime: ${criminal.conviction}</div>
-              <div class="criminal__start">Term Start: ${criminal.incarceration.start}</div>
-              <div class="criminal__end">Term End: ${criminal.incarceration.end}</div>
+              <div class="criminal__start">Term Start: ${new Date(
+                criminal.incarceration.start
+              ).toLocaleDateString("en-US")}</div>
+              <div class="criminal__end">Term End: ${new Date(
+                criminal.incarceration.end
+              ).toLocaleDateString("en-US")}</div>
           </section>
       `
 }

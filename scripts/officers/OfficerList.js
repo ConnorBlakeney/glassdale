@@ -11,6 +11,9 @@ export const OfficerList = () => {
       officerHTMLRepresentations += OfficerHTMLConverter(officer)
     })
 
-    contentTarget.innerHTML = officerHTMLRepresentations
+    contentTarget.innerHTML = `<h1>Officers</h1> 
+    <article class=""officers__list>
+      ${officerHTMLRepresentations}
+    </article>`
   })
 }
