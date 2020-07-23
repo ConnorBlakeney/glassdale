@@ -1,12 +1,6 @@
 @import "./criminal.css";
 @import "./officer.css";
 
-.container {
-  display: flex;
-}
-
 h1 {
-  display: flex;
   font-family: serif;
-  align-self: center;
 }

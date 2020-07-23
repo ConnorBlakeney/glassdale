@@ -1,8 +1,7 @@
-.criminalsContainer {
+.criminal__list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  flex-direction: column;
 }
 
 .criminal__card {

@@ -11,9 +11,11 @@ export const CriminalList = () => {
       criminalHTMLRepresentations += criminalsHTML(criminal)
     })
 
-    contentTarget.innerHTML += `<h1>Criminals</h1> 
-    <article class=""criminals__list>
-      ${criminalHTMLRepresentations}
-    </article>`
+    contentTarget.innerHTML += `
+    <h2>Glassdale Convicted Criminals</h2>
+    <article class="criminal__list">
+        ${criminalHTMLRepresentations}
+    </article>
+`
   })
 }
