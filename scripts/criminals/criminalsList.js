@@ -46,12 +46,12 @@ eventHub.addEventListener("officerSelect", (event) => {
   const officerName = event.detail.officer
 
   // How can you get the criminals that were arrested by that officer?
-  const criminals = useCriminals()
-  const filteredCriminals = criminals.filter((criminalObject) => {
+  const officers = useOfficers()
+  const filteredOfficers = officers.filter((criminalObject) => {
     if (criminalObject.arrestingOfficer === officerName) {
-      render(filteredCriminals)
+      render(filteredOfficers)
     } else {
-      render(criminals)
+      render(officers)
     }
   })
 })
