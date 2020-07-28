@@ -15,3 +15,7 @@ article {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+.filters {
+  display: flex;
+}
