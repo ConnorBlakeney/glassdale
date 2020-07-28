@@ -5,9 +5,30 @@ import {useConvictions} from "../convictions/ConvictionsProvider.js"
 const contentTarget = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
 
+eventHub.addEventListener("officerSelected", (officerSelectedEvent) => {
+  console.log("CriminalList: Custom officerSelected event heard on event hub")
+  // GOAL: FIlter displayed criminals by the arresting officer that was chosen
+
+  // Which officer was chosen: "Suzie Police" -> arrestingOfficer
+  const officerChosen = officerSelectedEvent.detail.officerName
+
+  // Filter criminal array based on what's chosen
+  const allCriminals = useCriminals()
+
+  // Array of criminals that were arrested by chosen officer
+  const filteredByOfficer = allCriminals.filter((currentCriminal) => {
+    if (currentCriminal.arrestingOfficer === officerChosen) {
+      return true
+    }
+    return false
+  })
+
+  render(filteredByOfficer)
+})
+
 eventHub.addEventListener("crimeSelected", (crimeSelectedEvent) => {
   // GOAL: Filter displayed criminals by the crime that was chosen
-
+  console.log("CriminalList: Custom crimeSelected event heard on event hub")
   // Which crime was chosen?????
   const crimeThatWasSelected = crimeSelectedEvent.detail.crimeId // 9
 
@@ -27,35 +48,8 @@ eventHub.addEventListener("crimeSelected", (crimeSelectedEvent) => {
   render(filteredCriminals)
 })
 
-// eventHub.addEventListener("officerSelected", (event) => {
-//   const officerName = event.detail.officer.name
-//   const criminals = useCriminals()
-
-//   if (officerName !== "0") {
-//     const matchingCriminals = criminals.filter(
-//       (criminal) => criminal.arrestingOfficer === officerName
-//     )
-//     render(matchingCriminals)
-//   } else {
-//     render(criminals)
-//   }
-// })
-
-eventHub.addEventListener("officerSelected", (officerSelectedEvent) => {
-  const criminals = useCriminals()
-  const officerName = officerSelectedEvent.detail.officer
-
-  if (selectedOfficer.detail.name !== "0") {
-    const filteredCriminals = criminals.filter(
-      (criminal) => criminal.arrestingOfficer === officerName
-    )
-    render(filteredCriminals)
-  } else {
-    render(criminals)
-  }
-})
-
 const render = (arrayOfCriminals) => {
+  console.log("CriminalList: Rendered to DOM")
   let criminalHTML = ""
 
   arrayOfCriminals.forEach((criminal) => {
