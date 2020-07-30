@@ -17,8 +17,9 @@ eventHub.addEventListener("click", (clickEvent) => {
       title: noteTitle.value,
       author: noteAuthor.value,
       content: noteContent.value,
-      timestamp: new Date().toLocaleString,
+      timestamp: Date.now(),
     }
+    console.log(newNote.title)
 
     // Change API state and application state
     saveNote(newNote)
@@ -28,10 +29,10 @@ eventHub.addEventListener("click", (clickEvent) => {
 const render = () => {
   contentTarget.innerHTML = `
         <section class="noteForm">
-            <input type="text" id="noteForm--title" placeholder="Enter note title" />
-            <input type="text" id="noteForm--author" placeholder="Your name here" />
-            <textarea id="noteForm--content" placeholder="Note text here"></textarea>
-            <button id="noteForm--saveNote">Save Note</button>
+            <input type="text" id="note--title" placeholder="Enter note title" />
+            <input type="text" id="note--author" placeholder="Your name here" />
+            <textarea id="note--content" placeholder="Note text here"></textarea>
+            <button id="saveNote">Save Note</button>
         </section>
     `
 }
