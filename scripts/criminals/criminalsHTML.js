@@ -17,19 +17,3 @@ export const criminalsHTML = (criminal) => {
              </section>
              `
 }
-
-export const AssociateHTML = (criminal) => {
-  return `
-  <span id="associates" class="alibis">
-              ${criminal.known_associates
-                .map(
-                  (associate) =>
-                    `
-                    <div><strong>Name</strong>: ${associate.name}</div>
-                    <span><strong>Alibi</strong>: ${associate.alibi}</div><br>
-                `
-                )
-                .join("")}
-              </span>
-  `
-}
