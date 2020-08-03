@@ -6,39 +6,6 @@
       "timestamp": "07/29/2020",
       "author": "Suzie Police",
       "content": "I think Colonel Mustard did it."
-    },
-    {
-      "title": "title",
-      "author": "connor",
-      "content": "hello world",
-      "id": 2
-    },
-    {
-      "title": "name title",
-      "author": "connor",
-      "content": "hello world",
-      "id": 3
-    },
-    {
-      "title": "title 4 ",
-      "author": "connor",
-      "content": "i did it",
-      "timestamp": 1596125967688,
-      "id": 4
-    },
-    {
-      "title": "title 4",
-      "author": "connor",
-      "content": "i did it",
-      "timestamp": 1596126374339,
-      "id": 5
-    },
-    {
-      "title": "title 4",
-      "author": "connor",
-      "content": "i did it",
-      "timestamp": 1596126395147,
-      "id": 6
     }
   ]
 }
