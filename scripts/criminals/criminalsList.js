@@ -64,6 +64,26 @@ const render = (arrayOfCriminals) => {
     `
 }
 
+// const renderAssociates = () => {
+//   console.log("CriminalList: Rendered to DOM")
+//   let associatesHTML = ""
+
+//   arrayOfAssociates.forEach((criminal) => {
+//     associatelHTML += associatesHTML(criminal)
+//   })
+
+//   associateContentTarget.innerHTML = `<span id="associates--alibi--${criminal.id}">
+//     ${criminal.known_associates}
+//       .map(
+//         (associate) =>
+//             <div class="criminal__associate">Associate: ${associate.name}</div>
+//             <div class="criminal__alibi">Alibi: ${associate.alibi}</div><br>
+//       )
+//       .join("")}
+//     </span>
+//   `
+// }
+
 export const CriminalList = () => {
   getCriminals().then(() => {
     const criminals = useCriminals()

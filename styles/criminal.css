@@ -10,3 +10,7 @@
 .criminal__card:hover {
   background-color: skyblue;
 }
+
+span {
+  display: none;
+}

@@ -25,9 +25,28 @@
       <div class="lists">
         <article class="criminalsContainer"></article>
         <article class="officersContainer"></article>
+        <article class="alibiContainer"></article>
       </div>
     </main>
 
-    <script type="module" src="./scripts/main.js"></script>
+    <script type="module" src="./scripts/main.js">
+            document.getElementsByClassName("myBtn").onclick = ShowAssociates;
+
+            const ShowAssociates = () => {
+              document.querySelector(".criminal__card").innerHTML = `
+                <span id="associates" class="alibis">
+                    ${criminal.known_associates
+                      .map(
+                        (associate) =>
+                          `
+                          <div><strong>Name</strong>: ${associate.name}</div>
+                          <span><strong>Alibi</strong>: ${associate.alibi}</div><br>
+                      `
+                      )
+                      .join("")}
+                    </span>
+        `
+      }
+    </script>
   </body>
 </html>
