@@ -11,9 +11,22 @@ export const criminalsHTML = (criminal) => {
               <div class="criminal__end">Term End: ${new Date(
                 criminal.incarceration.end
               ).toLocaleDateString("en-US")}</div>
-              <button id="associates--${
-                criminal.id
-              }" class="myBtn">Associate Alibis</button>
+              <button id="associates--${criminal.id}">Associate Alibis</button>
              </section>
              `
 }
+
+const eventHub = document.querySelector(".container")
+
+eventHub.addEventListener("click", (event) => {
+  if (event.target.id.startsWith("associates--")) {
+    const [label, criminalId] = event.target.id.split("--")
+    const showAssociates = new CustomEvent("showKnownAssociates", {
+      detail: {
+        chosenCriminal: criminalId,
+      },
+    })
+
+    eventHub.dispatchEvent(showAssociates)
+  }
+})
