@@ -1,4 +1,5 @@
-import {useCriminals} from "./CriminalProvider.js"
+import {useCriminals} from "./CriminalsProvider.js"
+
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".alibiContainer")
 
