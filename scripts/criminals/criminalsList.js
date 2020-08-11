@@ -64,6 +64,24 @@ const render = (arrayOfCriminals) => {
     `
 }
 
+// const render = (arrayOfCriminals) => {
+//   contentTarget.innerHTML = `
+//   ${arrayOfCriminals 
+//     .map(currentCriminal => {
+//       return criminalsHTML(currentCriminal)
+//     }).join(" ")}
+//     `
+// }
+
+eventHub.addEventListener("click", event => {
+  if (event.target.id === "criminalButton") {
+    render()
+    const customEvent = new CustomEvent("criminalButtonClicked")
+    eventHub.dispatchEvent(customEvent)
+  }
+})
+
+
 // const renderAssociates = () => {
 //   console.log("CriminalList: Rendered to DOM")
 //   let associatesHTML = ""

@@ -1,3 +1,5 @@
+import { WitnessList } from "./WitnessList.js"
+import { CriminalList } from "../criminals/CriminalsList.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".filters__witness")
@@ -10,8 +12,9 @@ export const WitnessButton = () => {
 
 eventHub.addEventListener("witnessButtonClicked", event => {
    contentTarget.innerHTML = `
-      <button id="witness_criminal_Button">Show Criminals</button>
+      <button id="criminalButton">Show Criminals</button>
    `
 })
 
-eventHub.addEventListener("witness_Criminal_ButtonClicked", WitnessButton)
+eventHub.addEventListener("witnessButtonClicked", WitnessList)
+eventHub.addEventListener("criminalButtonClicked", CriminalList)
