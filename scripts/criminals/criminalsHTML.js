@@ -1,6 +1,6 @@
 export const criminalsHTML = (criminal) => {
   return `
-          <section class="criminal__card">
+          <section class="criminal card">
               <h3 class="name">${criminal.name}</h3>
               <br>
               <div class="criminal__age">Age: ${criminal.age}</div>

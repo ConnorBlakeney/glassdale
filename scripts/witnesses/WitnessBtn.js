@@ -1,14 +1,17 @@
 
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".filters")
+const contentTarget = document.querySelector(".filters__witness")
 
-eventHub.addEventListener("click", (clickEvent) => {
-  if (clickEvent.target.id === "witnessBtn") {
-    const customEvent = new CustomEvent("showWitnessesClicked")
-    eventHub.dispatchEvent(customEvent)
-  }
+export const WitnessButton = () => {
+  contentTarget.innerHTML = `
+      <button id="witnessButton">Show Witnesss</button>
+  `
+}
+
+eventHub.addEventListener("witnessButtonClicked", event => {
+   contentTarget.innerHTML = `
+      <button id="witness_criminal_Button">Show Criminals</button>
+   `
 })
 
-export const ShowWitnessButton = () => {
-  contentTarget.innerHTML = "<button id='witnessBtn'>Witnesses</button>"
-}
+eventHub.addEventListener("witness_Criminal_ButtonClicked", WitnessButton)

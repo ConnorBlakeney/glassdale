@@ -1,9 +1,9 @@
 export const WitnessHTMLConverter = (witnessObj) => {
     return `
-        <section class="witness__card">
-              <h3 class="name">${witnessObj.name}</h3>
+        <section class="witness card">
+              <h3 class="name">Witness: ${witnessObj.name}</h3>
               <br>
-              <div class="witness__statement">Age: ${witnessObj.statement}</div>
+              <div class="witness__statement">Statement: ${witnessObj.statements}</div>
         </section>         
     `
 }
