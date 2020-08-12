@@ -1,5 +1,6 @@
 @import "./criminal.css";
 @import "./officer.css";
+@import "./notes.css";
 
 * {
   box-sizing: border-box;

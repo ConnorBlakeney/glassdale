@@ -64,15 +64,6 @@ const render = (arrayOfCriminals) => {
     `
 }
 
-// const render = (arrayOfCriminals) => {
-//   contentTarget.innerHTML = `
-//   ${arrayOfCriminals 
-//     .map(currentCriminal => {
-//       return criminalsHTML(currentCriminal)
-//     }).join(" ")}
-//     `
-// }
-
 eventHub.addEventListener("click", event => {
   if (event.target.id === "criminalButton") {
     render()
@@ -81,26 +72,6 @@ eventHub.addEventListener("click", event => {
   }
 })
 
-
-// const renderAssociates = () => {
-//   console.log("CriminalList: Rendered to DOM")
-//   let associatesHTML = ""
-
-//   arrayOfAssociates.forEach((criminal) => {
-//     associatelHTML += associatesHTML(criminal)
-//   })
-
-//   associateContentTarget.innerHTML = `<span id="associates--alibi--${criminal.id}">
-//     ${criminal.known_associates}
-//       .map(
-//         (associate) =>
-//             <div class="criminal__associate">Associate: ${associate.name}</div>
-//             <div class="criminal__alibi">Alibi: ${associate.alibi}</div><br>
-//       )
-//       .join("")}
-//     </span>
-//   `
-// }
 
 export const CriminalList = () => {
   getCriminals().then(() => {
