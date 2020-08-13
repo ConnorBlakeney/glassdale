@@ -1,5 +1,5 @@
 import {saveNote} from "./NoteProvider.js"
-import { getCriminals, useCriminals } from "../criminals/CriminalsProvider.js";
+import { getCriminals, useCriminalsAlphabetized } from "../criminals/CriminalsProvider.js";
 
 const contentTarget = document.querySelector(".noteFormContainer")
 const eventHub = document.querySelector(".container")
@@ -55,7 +55,7 @@ const render = (criminals) => {
 export const NoteForm = () => {
   getCriminals()
     .then(() => {
-      const criminals = useCriminals();
+      const criminals = useCriminalsAlphabetized();
       render(criminals);
     });
 };

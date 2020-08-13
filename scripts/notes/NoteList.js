@@ -1,5 +1,5 @@
 import { getNotes, useNotes } from "./NoteProvider.js"
-import { useCriminals } from "../criminals/CriminalsProvider.js";
+import { useCriminalsAlphabetized } from "../criminals/CriminalsProvider.js";
 import { NoteHTMLConverter } from "./NoteHTMLConverter.js"
 
 const contentTarget = document.querySelector(".noteList")
@@ -10,7 +10,7 @@ const eventHub = document.querySelector(".container")
 
 const render = (notes) => {
 
-    const criminals = useCriminals()
+    const criminals = useCriminalsAlphabetized()
     console.log(criminals)
         contentTarget.innerHTML = notes.reverse().map(
             (noteObject) => {
