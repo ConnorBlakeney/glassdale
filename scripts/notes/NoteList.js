@@ -1,28 +1,25 @@
 import { getNotes, useNotes } from "./NoteProvider.js"
-import { useCriminalsAlphabetized } from "../criminals/CriminalsProvider.js";
+import { useCriminals } from "../criminals/CriminalsProvider.js";
 import { NoteHTMLConverter } from "./NoteHTMLConverter.js"
 
 const contentTarget = document.querySelector(".noteList")
 const eventHub = document.querySelector(".container")
 // const noteContentTarget = document.querySelector(".noteList")
 
-export const NoteList = () => {
-     getNotes()
-        .then(useNotes)
-        .then(render)
-}
+
 
 const render = (notes) => {
-    const criminals = useCriminalsAlphabetized()
 
-    contentTarget.innerHTML = notes.reverse().map(
-        (noteObject) => {
+    const criminals = useCriminals()
+    console.log(criminals)
+        contentTarget.innerHTML = notes.reverse().map(
+            (noteObject) => {
             // Find the criminal that this note is about
-            const foundCriminal = criminals.find(
-                (criminalObject) => {
-                    return criminalObject.id === noteObject.criminalId
-                }
-            )
+                const foundCriminal = criminals.find(
+                    (criminalObject) => {
+                        return criminalObject.id === noteObject.criminalId  
+                    }
+                )
 
             // Send the criminal to the HTML converter
             return NoteHTMLConverter(noteObject, foundCriminal)
@@ -30,7 +27,13 @@ const render = (notes) => {
     ).join("")
 }
 
-eventHub.addEventListener("showNotesClicked", NoteList())
+export const NoteList = () => {
+     getNotes()
+        .then(useNotes)
+        .then(render)
+}
+
+eventHub.addEventListener("showNotesClicked", NoteList)
 eventHub.addEventListener("noteStateChanged", () => {
     const newNotes = useNotes()
     render(newNotes)

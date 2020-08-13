@@ -1,5 +1,5 @@
 import {saveNote} from "./NoteProvider.js"
-import { useCriminalsAlphabetized, getCriminals } from "../criminals/CriminalsProvider.js";
+import { getCriminals, useCriminals } from "../criminals/CriminalsProvider.js";
 
 const contentTarget = document.querySelector(".noteFormContainer")
 const eventHub = document.querySelector(".container")
@@ -12,9 +12,9 @@ eventHub.addEventListener("click", (clickEvent) => {
     const noteTitle = document.querySelector("#note--title")
     const noteAuthor = document.querySelector("#note--author")
     const noteContent = document.querySelector("#note--content")
-    const noteCriminal = document.querySelector("#note--criminalId")
+    const noteCriminal = document.querySelector("#note--criminal")
 
-    const criminalId = parseInt(noteCriminal.value)
+    // const criminalId = parseInt(noteCriminal.value)
 
     if (criminalId !== 0) {
         const newNote = {
@@ -41,7 +41,7 @@ const render = (criminals) => {
             <input type="text" id="note--author" placeholder="Your name here" />
             <div class="form-group">
                 <label class="note-form__label" for="criminalId">Criminal</label>
-                <select class="note-form__criminalId" id="note--criminalId" name="criminalId">
+                <select class="note-form__criminalId" id="note--criminal" name="criminalId">
                 <option value="0">Select a criminal...</option>
                 ${criminals.map(criminal => `<option value="${criminal.id}">${criminal.name}</option>`).join('')}
                 </select>
@@ -55,7 +55,7 @@ const render = (criminals) => {
 export const NoteForm = () => {
   getCriminals()
     .then(() => {
-      const criminals = useCriminalsAlphabetized();
+      const criminals = useCriminals();
       render(criminals);
     });
 };
