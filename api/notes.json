@@ -1,19 +1,12 @@
 {
   "notes": [
     {
-      "id": 1,
-      "title": "Note about felon",
-      "timestamp": "07/29/2020",
-      "author": "Suzie Police",
-      "content": "I think Colonel Mustard did it.",
-      "criminalId": 1
-    },
-    {
-      "title": "",
-      "author": "",
-      "content": "",
-      "timestamp": 1597261110419,
-      "id": 2
+      "title": "title",
+      "author": "connor",
+      "content": "abigayle did it",
+      "timestamp": 1597331437521,
+      "criminalId": 12,
+      "id": 1
     }
   ]
 }

@@ -1,34 +1,40 @@
-import {getNotes, useNotes} from "./NoteProvider.js"
-// import {NoteHTMLConverter} from "./NoteHTMLConverter.js"
+import { getNotes, useNotes } from "./NoteProvider.js"
+import { useCriminalsAlphabetized } from "../criminals/CriminalsProvider.js";
+import { NoteHTMLConverter } from "./NoteHTMLConverter.js"
 
 const contentTarget = document.querySelector(".noteList")
 const eventHub = document.querySelector(".container")
+// const noteContentTarget = document.querySelector(".noteList")
 
-eventHub.addEventListener("showNotesClicked", (customEvent) => {
-  NoteList()
+export const NoteList = () => {
+     getNotes()
+        .then(useNotes)
+        .then(render)
+}
+
+const render = (notes) => {
+    const criminals = useCriminalsAlphabetized()
+
+    contentTarget.innerHTML = notes.reverse().map(
+        (noteObject) => {
+            // Find the criminal that this note is about
+            const foundCriminal = criminals.find(
+                (criminalObject) => {
+                    return criminalObject.id === noteObject.criminalId
+                }
+            )
+
+            // Send the criminal to the HTML converter
+            return NoteHTMLConverter(noteObject, foundCriminal)
+        }
+    ).join("")
+}
+
+eventHub.addEventListener("showNotesClicked", NoteList())
+eventHub.addEventListener("noteStateChanged", () => {
+    const newNotes = useNotes()
+    render(newNotes)
 })
-
-const NoteList = () => {
-    getNotes()
-        .then(getCriminals)
-        .then(() => {
-            const notes = useNotes()
-            const criminals = useCriminals()
-
-            render(notes, criminals)
-        })
-}
-
-const render = (noteCollection, criminalCollection) => {
-    contentTarget.innerHTML = noteCollection.map(note => {
-        // Find the related criminal
-        const relatedCriminal = criminalCollection.find(criminal => criminal.id === note.criminalId)
-
-        return `
-            <section class="note">
-                <h2>Note about ${relatedCriminal.name}</h2>
-                ${note.noteText}
-            </section>
-        `
-    })
-}
+eventHub.addEventListener("hideNotesClicked", () => {
+    contentTarget.innerHTML = ""
+})

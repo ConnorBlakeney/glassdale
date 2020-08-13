@@ -12,20 +12,26 @@ eventHub.addEventListener("click", (clickEvent) => {
     const noteTitle = document.querySelector("#note--title")
     const noteAuthor = document.querySelector("#note--author")
     const noteContent = document.querySelector("#note--content")
+    const noteCriminal = document.querySelector("#note--criminalId")
 
-    const newNote = {
+    const criminalId = parseInt(noteCriminal.value)
+
+    if (criminalId !== 0) {
+        const newNote = {
       // Key/value pairs here
       title: noteTitle.value,
       author: noteAuthor.value,
       content: noteContent.value,
       timestamp: Date.now(),
-    //   criminalId: 
+      criminalId: parseInt(noteCriminal.value)
     }
-    console.log(newNote.title)
 
     // Change API state and application state
     saveNote(newNote)
-  }
+  } else {
+            window.alert("Please select a criminal")
+        }
+    }
 })
 
 const render = (criminals) => {
@@ -33,7 +39,6 @@ const render = (criminals) => {
         <section class="noteForm">
             <input type="text" id="note--title" placeholder="Enter note title" />
             <input type="text" id="note--author" placeholder="Your name here" />
-            <textarea id="note--content" placeholder="Note text here"></textarea>
             <div class="form-group">
                 <label class="note-form__label" for="criminalId">Criminal</label>
                 <select class="note-form__criminalId" id="note--criminalId" name="criminalId">
@@ -41,6 +46,7 @@ const render = (criminals) => {
                 ${criminals.map(criminal => `<option value="${criminal.id}">${criminal.name}</option>`).join('')}
                 </select>
             </div>
+            <textarea id="note--content" placeholder="Note text here"></textarea>
             <button id="saveNote">Save Note</button>
         </section>
     `
@@ -53,7 +59,3 @@ export const NoteForm = () => {
       render(criminals);
     });
 };
-
-/* <select id="noteForm--criminal" class="criminalSelect">
-    <option value="criminal--${ criminal.id }">${ criminal.name }</option>
-</select> */
