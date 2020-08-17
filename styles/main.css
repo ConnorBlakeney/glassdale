@@ -1,0 +1,22 @@
+@import "./criminal.css";
+@import "./officer.css";
+@import "./notes.css";
+
+* {
+  box-sizing: border-box;
+}
+
+h2,
+h3 {
+  font-family: serif;
+}
+
+article {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.filters {
+  display: flex;
+}
