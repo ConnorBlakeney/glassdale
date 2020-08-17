@@ -1,3 +1,15 @@
+import { deleteNote } from "./NoteProvider.js";
+
+const eventHub = document.querySelector(".container")
+
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("noteBtn--")) {
+        const [ prompt, noteIdString ] = clickEvent.target.id.split("--")  // "3"
+
+        deleteNote(noteIdString)
+    }
+})
+
 export const NoteHTMLConverter = (noteObject, criminalObject) => {
   return `
         <section class="note">
@@ -8,6 +20,8 @@ export const NoteHTMLConverter = (noteObject, criminalObject) => {
             <div class="note--timestamp">Timestamp: ${new Date(
               noteObject.timestamp
             ).toLocaleDateString("en-US")}</div>
+
+            <button id="noteBtn--${noteObject.id}">Delete</button>
         </section>
     `
 }

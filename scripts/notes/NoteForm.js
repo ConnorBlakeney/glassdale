@@ -14,7 +14,7 @@ eventHub.addEventListener("click", (clickEvent) => {
     const noteContent = document.querySelector("#note--content")
     const noteCriminal = document.querySelector("#note--criminal")
 
-    // const criminalId = parseInt(noteCriminal.value)
+    const criminalId = parseInt(noteCriminal.value)
 
     if (criminalId !== 0) {
         const newNote = {

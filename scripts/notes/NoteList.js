@@ -6,7 +6,10 @@ const contentTarget = document.querySelector(".noteList")
 const eventHub = document.querySelector(".container")
 // const noteContentTarget = document.querySelector(".noteList")
 
-
+eventHub.addEventListener("noteStateChanged", customEvent => {
+    const allNotes = useNotes()
+    render(allNotes)
+})
 
 const render = (notes) => {
 
