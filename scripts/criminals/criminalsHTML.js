@@ -1,4 +1,6 @@
-export const criminalsHTML = (criminal) => {
+const eventHub = document.querySelector(".container")
+
+export const CriminalHTMLConverter = (criminal, facilities) => {
   return `
           <section class="criminal card">
               <h3 class="name">${criminal.name}</h3>
@@ -11,12 +13,21 @@ export const criminalsHTML = (criminal) => {
               <div class="criminal__end">Term End: ${new Date(
                 criminal.incarceration.end
               ).toLocaleDateString("en-US")}</div>
+
+              <ul>
+                ${
+                    facilities.map(
+                        (facility) => {
+                            return `<li>${facility.facilityName}</li>`
+                        }
+                    ).join("")
+                }
+              </ul>
+
               <button id="associates--${criminal.id}">Associate Alibis</button>
              </section>
              `
 }
-
-const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", (event) => {
   if (event.target.id.startsWith("associates--")) {
