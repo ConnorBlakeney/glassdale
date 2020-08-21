@@ -52,7 +52,8 @@ const render = () => {
                 }
             )
             
-            return CriminalHTMLConverter(criminal, matchingFacilities)
+            return CriminalHTMLConverter(criminal, matchingFacilities) 
+            debugger
         }
     )
 
