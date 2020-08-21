@@ -11,3 +11,9 @@ export const getConvictions = () => {
       convictions = parsedConvictions
     })
 }
+
+export const useConvictionsAlphabetized = () => (
+  convictions
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name))
+);

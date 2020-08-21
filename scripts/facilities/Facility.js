@@ -1,6 +1,6 @@
 export const FacilityHTMLConverter = (facilityObj, criminals) => {
     return `
-        <section class="witness card">
+        <section class="facility card">
               <h3 class="facility__name">${facilityObj.facilityName}</h3>
               <br>
               <div class="facility__security">Security Level: ${facilityObj.securityLevel}</div>

@@ -1,4 +1,4 @@
-import {getConvictions, useConvictions} from "./ConvictionsProvider.js"
+import {getConvictions, useConvictionsAlphabetized} from "./ConvictionsProvider.js"
 
 const contentTarget = document.querySelector(".filters__crime")
 const eventHub = document.querySelector(".container")
@@ -36,7 +36,7 @@ const render = (convictionsCollection) => {
 export const ConvictionSelect = () => {
   getConvictions().then(() => {
     // Get all convictions from application state
-    const convictions = useConvictions()
+    const convictions = useConvictionsAlphabetized()
 
     render(convictions)
   })

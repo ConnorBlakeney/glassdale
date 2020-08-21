@@ -25,7 +25,7 @@ export const CriminalHTMLConverter = (criminal, facilities) => {
               </ul>
 
               <button id="associates--${criminal.id}">Associate Alibis</button>
-             </section>
+          </section>
              `
 }
 

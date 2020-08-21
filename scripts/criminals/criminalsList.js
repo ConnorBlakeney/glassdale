@@ -1,6 +1,6 @@
-import {useCriminals, getCriminals} from "./CriminalsProvider.js"
-import {CriminalHTMLConverter} from "./CriminalsHTML.js"
-import {useConvictions} from "../convictions/ConvictionsProvider.js"
+import { useCriminals, getCriminals } from "./CriminalsProvider.js"
+import { CriminalHTMLConverter } from "./CriminalsHTML.js"
+import { useConvictions } from "../convictions/ConvictionsProvider.js"
 import { getFacilities, useFacilities } from "../facilities/FacilityProvider.js";
 import { useCriminalFacilities, getCriminalFacilities } from "../facilities/CriminalFacilityProvider.js";
 
@@ -29,9 +29,6 @@ export const CriminalList = () => {
 }
 
 const render = () => {
-    console.log("CriminalList: Rendered to DOM")
-    let criminalHTML = ""
-
     const arrayOfCriminalHTMLRepresentations = criminals.map(
         (criminal) => {
             // Get all of the criminal/facility relationships for this criminal
@@ -53,7 +50,6 @@ const render = () => {
             )
             
             return CriminalHTMLConverter(criminal, matchingFacilities) 
-            debugger
         }
     )
 
@@ -98,7 +94,6 @@ const filterCriminals = () => {
 }
 
 eventHub.addEventListener("officerSelected", (officerSelectedEvent) => {
-    console.log("CriminalList: Custom officerSelected event heard on event hub")
 
     chosenFilters.officer = officerSelectedEvent.detail.officerName
     filterCriminals()
@@ -106,7 +101,6 @@ eventHub.addEventListener("officerSelected", (officerSelectedEvent) => {
 })
 
 eventHub.addEventListener("crimeSelected", (crimeSelectedEvent) => {
-    console.log("CriminalList: Custom crimeSelected event heard on event hub")
 
     chosenFilters.crime = crimeSelectedEvent.detail.crimeId
 
