@@ -6,7 +6,7 @@ const contentTarget = document.querySelector(".filters__witness")
 
 export const WitnessButton = () => {
   contentTarget.innerHTML = `
-      <button id="witnessButton">Show Witnesss</button>
+      <button id="witnessButton">Show Witnesses</button>
   `
 }
 
