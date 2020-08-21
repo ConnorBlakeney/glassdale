@@ -17,4 +17,7 @@ eventHub.addEventListener("witnessButtonClicked", event => {
 })
 
 eventHub.addEventListener("witnessButtonClicked", WitnessList)
-eventHub.addEventListener("criminalButtonClicked", CriminalList)
+eventHub.addEventListener("criminalButtonClicked", () => {
+    CriminalList
+    WitnessButton()
+})
