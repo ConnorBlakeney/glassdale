@@ -18,39 +18,6 @@ eventHub.addEventListener("click", event => {
   }
 })
 
-// const render = () => {
-//     console.log("FacilityList: Rendered to DOM")
-//     let facilityHTML = ""
-
-//     const arrayOfFacilityHTMLRepresentations = facilities.map(
-//         (facility) => {
-//             // Get all of the criminal/facility relationships for this criminal
-//             const criminalFacilityRelationships = criminalFacilities.filter(
-//                 (cf) => {
-//                     return facility.id === cf.facilityId
-//                 }
-//             )
-
-//             // Convert the relationship objects to facility objects
-//             const matchingCriminals = criminalFacilityRelationships.map(
-//                 (currentRelationship) => {
-//                     return criminals.find(
-//                         (criminal) => {
-//                             return currentRelationship.criminalId === criminal.id
-//                         }
-//                     )
-//                 }
-//             )
-            
-//            facilityHTML += FacilityHTMLConverter(facilities, matchingCriminals)
-//         }
-//     )
-
-//     contentTarget.innerHTML = `
-//     ${facilityHTML}
-//   `
-// }
-
 const render = () => {
     let facilityHTMLReps = ""
             facilities.map(facilityObj => {
@@ -90,7 +57,3 @@ export const FacilitiesList = () => {
         })
 }
 
-
-// const render = (facilitiesObj) => {
-//     contentTarget.innerHTML = FacilityHTMLConverter(facilitiesObj)
-// }

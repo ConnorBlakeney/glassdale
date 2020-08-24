@@ -1,4 +1,3 @@
-// import {OfficerList} from "./officers/OfficerList.js"
 import { CriminalList } from "./criminals/CriminalsList.js"
 import { ConvictionSelect } from "./convictions/ConvictionsList.js"
 import { OfficerSelect } from "./officers/OfficerSelect.js"
@@ -9,7 +8,6 @@ import "./criminals/KnownAssociates.js"
 import { WitnessButton } from "./witnesses/WitnessBtn.js"
 import { FacilitiesButton } from "./facilities/FacilityBtn.js"
 
-// OfficerList()
 CriminalList()
 ConvictionSelect()
 OfficerSelect()

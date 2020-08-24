@@ -32,8 +32,3 @@ export const WitnessList = () => {
     render(allWitnesses)
   })
 }
-
-
-// const render = (witnessObj) => {
-//     contentTarget.innerHTML = WitnessHTMLConverter(witnessObj)
-// }
